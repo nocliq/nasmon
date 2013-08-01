@@ -50,5 +50,15 @@ DELETE /servers/{hostname}
 
 -- Logs --
 
+Retreive all logs for a server
+GET /servers/{hostname}/logs
+> Accept: application/json
+< 200
+< Content-Type: application/json
+{ "logs": [
+  {"logTime": "7/29/13 14:00:02", "logLevel": "INFO", "logMsg": "Backups completed successfully"},
+  {"logTime": "7/29/13 13:34:18", "logLevel": "WARN", "logMsg": "User 'testguy' skipped due to .skip_next_hg_backup file"},
+  {"logTime": "7/29/13 14:00:00", "logLevel": "INFO", "logMsg": "Databases backed up successfully"}
+] }
 
 
