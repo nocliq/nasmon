@@ -20,15 +20,24 @@ GET /servers
 ]  }
 
 Add a new server to the list.
-POST /servers
+POST /servers/new
 > Accept: aplication/json
 < 201
 < Content-Type: application/json
+< Location: http://nas.hostgator.com/servers/gator3010
 { "hostname": "gator3010.hostgator.com", "nasAssignment": "nas900.hostgator.com" }
 
 Display a specific server
 GET /servers/{hostname}
 > Accept: application/json
+< 200
+< Content-Type: application/json
+{ "hostname": "samco.websitewelcome.com", "nasAssignment": "nas715.hostgator.com", "lastBackup": "7/29/13 14:00:02", "backupStatus": "Completed", "pctComplete": 100 }
+
+Partially update a specific server
+PATCH /servers/{hostname}
+> Accept: application/json
+{ "hostname": "samco.websitewelcome.com", "nasAssignment": "nas715.hostgator.com" }
 < 200
 < Content-Type: application/json
 { "hostname": "samco.websitewelcome.com", "nasAssignment": "nas715.hostgator.com", "lastBackup": "7/29/13 14:00:02", "backupStatus": "Completed", "pctComplete": 100 }
