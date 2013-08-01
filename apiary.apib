@@ -58,7 +58,16 @@ GET /servers/{hostname}/logs
 { "logs": [
   {"logTime": "7/29/13 14:00:02", "logLevel": "INFO", "logMsg": "Backups completed successfully"},
   {"logTime": "7/29/13 13:34:18", "logLevel": "WARN", "logMsg": "User 'testguy' skipped due to .skip_next_hg_backup file"},
-  {"logTime": "7/29/13 14:00:00", "logLevel": "INFO", "logMsg": "Databases backed up successfully"}
+  {"logTime": "7/29/13 13:03:55", "logLevel": "INFO", "logMsg": "Databases backed up successfully"}
 ] }
+
+Add a new log entry
+POST /server/{hostname}/logs
+> Accept: application/json
+{ "logTime": "7/29/13 14:04:26", "logLevel": "INFO", "logMsg": "Status Updated" }
+< 201
+< Content-Type: application/json
+< Location: http://nas.hostgator.com/servers/samco/logs
+{ "status": 201, "msg": "logged"}
 
 
