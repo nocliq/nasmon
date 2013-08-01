@@ -70,4 +70,23 @@ POST /servers/{hostname}/logs
 < Location: http://nas.hostgator.com/servers/samco/logs
 { "status": 201, "msg": "logged"}
 
+-- Nas --
+
+List all NAS boxes and wich servers are assigned to them
+GET /nas
+> Accept: application/json
+< 200
+< Content-Type: application/json
+{ "nas":[
+  { "url": "/nas/nas715", "hostname": "nas715.hostgator.com", "assigned":[
+    { "samco": "/home" },
+    { "gator1546": "/home" }, 
+    { "gator63": "/home2" } 
+    ] },
+  { "url": "/nas/nas901", "hostname": "nas901.hostgator.com", "assigned":[
+    { "evo": "/home" },
+    { "vps822": "/home2" }
+    ] },
+]  }
+
 
