@@ -6,7 +6,7 @@ HOST: http://nas.hostgator.com/
 A RESTful API to be used with the NAS monitor and other scripts related to the NAS backup service.
 ---
 
--- Server Resources --
+-- Servers --
 
 
 List all servers
@@ -41,3 +41,14 @@ PATCH /servers/{hostname}
 < 200
 < Content-Type: application/json
 { "hostname": "samco.websitewelcome.com", "nasAssignment": "nas715.hostgator.com", "lastBackup": "7/29/13 14:00:02", "backupStatus": "Completed", "pctComplete": 100 }
+
+Delete a specific server
+DELETE /servers/{hostname}
+> Accept: application/json
+< 204
+{ "status": 204, "message": "Successfully Deleted" }
+
+-- Logs --
+
+
+
